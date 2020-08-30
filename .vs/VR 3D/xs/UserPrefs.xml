@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{1C0FFC90-44B9-0E38-14AA-7F18D111707A}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MatrixDisplay.cs">
+    <Files>
+      <File FileName="Assets/Scripts/MeshGenerator.cs" Line="7" Column="85" />
+      <File FileName="Assets/Scripts/NewMonoBehaviour.cs" Line="17" Column="6" />
+      <File FileName="Assets/Scripts/MeshMonoBehaviour.cs" Line="10" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="VR 3D" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="MatrixDisplay.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7e59cd01-22d5-49d2-9186-e66362d6995b" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
