@@ -6,12 +6,16 @@ using System;
 // Script for displaying linear transformation matrix on the screen
 public class MatrixDisplay : MonoBehaviour
 {
-    public Text matrix;
+    public Text matrix; // Assigned to text object in inspector
     MeshGenerator meshGenerator;
 
     // Use this for initialization
     void Start()
     {
+        // Display multiple lines correctly
+        matrix.horizontalOverflow = HorizontalWrapMode.Wrap;
+        matrix.verticalOverflow = VerticalWrapMode.Overflow;
+
         GameObject mesh = GameObject.Find("Mesh");
         meshGenerator = mesh.GetComponent<MeshGenerator>();
     }
@@ -27,11 +31,10 @@ public class MatrixDisplay : MonoBehaviour
         {
             for (int j = 0; j < 3; j++)
             {
-                text += Math.Round(transformMatrix[i][j], 0);
-                text += " ";
+                text += string.Format("{0:00.0}", transformMatrix[i][j]);
+                text += "  ";
             }
-            text += "|";
-            //text += "\n";
+            text += "\n";
         }
 
         matrix.text = text;
