@@ -57,20 +57,23 @@ public class MeshGenerator : MonoBehaviour
         i = 0;
         int j = 0;
         // Set horizontal lines
-        for (int x = 0; x < size * size; x++)
+        for (int sheet = 0; sheet < size; sheet++)
         {
-            indices[i++] = j;
-            j += (size - 1);
-            indices[i++] = j;
-            j += 1;
+            for (int y = 0; y < size; y++)
+            {
+                indices[i++] = j;
+                j += (size - 1);
+                indices[i++] = j;
+                j += 1;
+            }
         }
 
         j = 0;
         int k = size * size - size; // upper left vertex #
         // set vertical lines
-        for (int test = 0; test < size; test++)
+        for (int sheet = 0; sheet < size; sheet++)
         {
-            for (int y = 0; y < size; y++)
+            for (int x = 0; x < size; x++)
             {
                 indices[i++] = j;
                 j += 1;
@@ -84,12 +87,15 @@ public class MeshGenerator : MonoBehaviour
         // set lines extending back in the z direction
         j = 0;
         k = (size * size * size) - (size * size);
-        for (int z = 0; z < size * size; z++)
+        for (int y = 0; y < size; y++)
         {
-            indices[i++] = j;
-            j += 1;
-            indices[i++] = k;
-            k += 1;
+            for (int x = 0; x < size; x++)
+            {
+                indices[i++] = j;
+                j += 1;
+                indices[i++] = k;
+                k += 1;
+            }
         }
     }
 
