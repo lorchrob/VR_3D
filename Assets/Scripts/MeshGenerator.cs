@@ -20,41 +20,11 @@ public class MeshGenerator : MonoBehaviour
     {
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
+        vertices = new Vector3[size * size * size];
 
-        CreateShape();
-        UpdateMesh();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        CreateShape();
-        UpdateMesh();
-    }
-
-    void CreateShape()
-    {
-        vertices = new Vector3[size  * size * size];
-        int i = 0;
-
-        // set mesh vertices
-        for (int z = 0; z < size; z++)
-        {
-            for (int y = 0; y < size; y++)
-            {
-                for (int x = 0; x < size; x++)
-                {
-                    vertices[i++] = new Vector3(x*transformMatrix[0].x + y*transformMatrix[0].y + z*transformMatrix[0].z,
-                                                x*transformMatrix[1].x + y*transformMatrix[1].y + z*transformMatrix[1].z,
-                                                x*transformMatrix[2].x + y*transformMatrix[2].y + z*transformMatrix[2].z);
-                    
-                }
-            }
-            
-        }
-        
+        // Define mesh lines
         indices = new int[(size * size + size * size + size * size) * 2];
-        i = 0;
+        int i = 0;
         int j = 0;
         // Set horizontal lines
         for (int sheet = 0; sheet < size; sheet++)
@@ -99,10 +69,38 @@ public class MeshGenerator : MonoBehaviour
         }
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        CreateShape();
+        UpdateMesh();
+    }
+
+    void CreateShape()
+    {
+        vertices = new Vector3[size  * size * size];
+        int i = 0;
+
+        // set mesh vertices
+        for (int z = 0; z < size; z++)
+        {
+            for (int y = 0; y < size; y++)
+            {
+                for (int x = 0; x < size; x++)
+                {
+                    vertices[i++] = new Vector3(x * transformMatrix[0].x + y * transformMatrix[0].y + z * transformMatrix[0].z,
+                                                x * transformMatrix[1].x + y * transformMatrix[1].y + z * transformMatrix[1].z,
+                                                x * transformMatrix[2].x + y * transformMatrix[2].y + z * transformMatrix[2].z);
+
+                }
+            }
+
+        }
+    }
+
     void UpdateMesh()
     {
         mesh.Clear();
-
         mesh.vertices = vertices;
         mesh.SetIndices(indices, MeshTopology.Lines, 0);
     }
