@@ -1,8 +1,8 @@
-﻿<Properties StartupConfiguration="{1C0FFC90-44B9-0E38-14AA-7F18D111707A}|">
+﻿<Properties>
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BlenderMesh.cs">
     <Files>
       <File FileName="Assets/Scripts/MeshGenerator.cs" Line="81" Column="9" />
-      <File FileName="Assets/Scripts/BlenderMesh.cs" Line="28" Column="6" />
+      <File FileName="Assets/Scripts/BlenderMesh.cs" Line="40" Column="1" />
       <File FileName="Assets/Scripts/MeshMonoBehaviour.cs" />
       <File FileName="Assets/Scripts/MatrixDisplay.cs" />
       <File FileName="Assets/MainMenu.cs" />
@@ -10,21 +10,13 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="VR 3D" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="BlenderMesh.cs" selected="True" />
-              </Node>
-              <Node name="TextMesh Pro" expanded="True" />
-            </Node>
-          </Node>
+          <Node name="VR 3D" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d03fbb37-3b1a-4887-9e76-ce15a4ba4da5" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
