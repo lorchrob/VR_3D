@@ -55,14 +55,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\MainMenu.cs" />
      <Compile Include="Assets\Scripts\BlenderMesh.cs" />
+     <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\MatrixDisplay.cs" />
+     <Compile Include="Assets\Scripts\MatrixInv.cs" />
      <Compile Include="Assets\Scripts\MeshGenerator.cs" />
      <Compile Include="Assets\Scripts\MeshMonoBehaviour.cs" />
      <Compile Include="Assets\Scripts\SC_FPSController.cs" />
+     <Compile Include="Assets\Scripts\ShootTransform.cs" />
      <Compile Include="Assets\Scripts\TransMatrix.cs" />
-     <Compile Include="Assets\ShootTransform.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
