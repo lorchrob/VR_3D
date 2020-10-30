@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ShootTransform : MonoBehaviour
 {
@@ -19,26 +20,24 @@ public class ShootTransform : MonoBehaviour
         RaycastHit hit;
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(firePoint.position, firePoint.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
-            {
-                if (hit.collider.tag == "Transformable") {
-                    hit.collider.gameObject.GetComponent<BlenderMesh>().TransformShape(inventory.equippedMatrix.matrix);
-                }
-                Debug.Log(hit.point);
-                Debug.Log(hit.collider.tag);
+            if (RaycastTransformable(out hit)) {
+                hit.collider.gameObject.GetComponent<BlenderMesh>().TransformShapeRestricted(inventory.equippedMatrix.matrix,
+                                                                                             false,
+                                                                                             inventory.equippedMatrix.name);
             }
+            //Debug.Log(hit.point);
+            //Debug.Log(hit.collider.tag);
         }
         else if (Input.GetMouseButtonDown(1))
         {
-            if (Physics.Raycast(firePoint.position, firePoint.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
+            if (RaycastTransformable(out hit))
             {
-                if (hit.collider.tag == "Transformable")
-                {
-                    hit.collider.gameObject.GetComponent<BlenderMesh>().TransformShape(inventory.equippedMatrix.invertMatrix);
-                }
-                Debug.Log(hit.point);
-                Debug.Log(hit.collider.tag);
+                hit.collider.gameObject.GetComponent<BlenderMesh>().TransformShapeRestricted(inventory.equippedMatrix.invertMatrix,
+                                                                                             true,
+                                                                                             inventory.equippedMatrix.name);
             }
+            //Debug.Log(hit.point);
+            //Debug.Log(hit.collider.tag);
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
@@ -48,9 +47,23 @@ public class ShootTransform : MonoBehaviour
         {
             inventory.MoveDown();
         }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            // Should make sure the player wants to continue
+            SceneManager.LoadScene (SceneManager.GetActiveScene().name);
+        }
     }
 
-
-
-
+    /* Performs a raycast out from the fire point into the game world.
+     * 
+     * If the raycast hits a collider, returns whether or not the collider is
+     * tagged as transformable. If the raycast hits no colliders, return false.
+     */
+    public bool RaycastTransformable(out RaycastHit hit)
+    {
+        if (Physics.Raycast(firePoint.position, firePoint.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
+            return hit.collider.tag == "Transformable";
+        else
+            return false;
+    }
 }

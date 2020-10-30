@@ -67,31 +67,33 @@ public class MatrixInv : MonoBehaviour
     // Update the equipped matrix;
     void EquipMatrix()
     {
-        equippedMatrix = matrices[equippedIndex];
+        if (matrices.Count > 0)
+        {
+            equippedMatrix = matrices[equippedIndex];
+        }
         UpdateText();
     }
 
     // Update the inventory menu
-    void UpdateText()
+    void UpdateText() // FIX THIS. NULL POINTER
     {
-        equipped.text = matrices[equippedIndex].name;
+        above.text = "";
+        below.text = "";
+        equipped.text = "";
 
-        if (equippedIndex == matrices.Count - 1)
+        if (matrices.Count > 0)
         {
-            below.text = "";
+            equipped.text = matrices[equippedIndex].name;
         }
-        else
-        {
+
+        if (equippedIndex + 1 < matrices.Count)
+        {       
             below.text = matrices[equippedIndex + 1].name;
         }
 
-        if (equippedIndex == 0)
+        if (equippedIndex - 1 >= 0)
         {
-            above.text = "";
-        }
-        else
-        {
-            above.text = matrices[equippedIndex - 1].name;
+                    above.text = matrices[equippedIndex - 1].name;          
         }
     }
 
@@ -105,6 +107,9 @@ public class MatrixInv : MonoBehaviour
         if (onMatrixChangedCallBack != null)
             onMatrixChangedCallBack.Invoke();
 
+        UpdateText();
+        EquipMatrix();
+
         return true;
     }
 
@@ -115,6 +120,9 @@ public class MatrixInv : MonoBehaviour
 
         if (onMatrixChangedCallBack != null)
             onMatrixChangedCallBack.Invoke();
+
+        UpdateText();
+
     }
 
 

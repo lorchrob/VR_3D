@@ -14,6 +14,8 @@ public class SC_FPSController : MonoBehaviour
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
 
+    public Transform start;
+
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
@@ -23,6 +25,7 @@ public class SC_FPSController : MonoBehaviour
 
     void Start()
     {
+        transform.position = start.position + new Vector3(0, 2, 0);
         characterController = GetComponent<CharacterController>();
 
         // Lock cursor
@@ -61,6 +64,8 @@ public class SC_FPSController : MonoBehaviour
 
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
+
+        
 
         // Player and Camera rotation
         if (canMove)
