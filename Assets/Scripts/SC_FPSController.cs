@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 
+// This script gives all the player control "FPS" capabilities. Borrowed from the internet.
 public class SC_FPSController : MonoBehaviour
 {
     public float walkingSpeed = 7.5f;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "New Matrix", menuName = "Transformation Matrix")]
+/* This script holds the info associated with a particular linear transformation. */
 public class TransMatrix : ScriptableObject
 {
     
@@ -30,10 +31,11 @@ public class TransMatrix : ScriptableObject
         invertMatrix[2].y = (1 / det) * (matrix[0].y * matrix[2].x - matrix[0].x * matrix[2].y);
         invertMatrix[2].z = (1 / det) * (matrix[0].x * matrix[1].y - matrix[0].y * matrix[1].x);
 
+/*
         for (int i = 0; i < 3; i++)
         {
             Debug.Log(invertMatrix[i].x.ToString() + ", " + invertMatrix[i].y.ToString() + ", " + invertMatrix[i].z.ToString());
         }
+*/
     }
-
 }

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/* This script gives the player the capability to fire the linear transformation
+cannon, as well as cycle through transformations in the inventory. */
 public class ShootTransform : MonoBehaviour
 {
     public Transform firePoint;
@@ -15,27 +17,20 @@ public class ShootTransform : MonoBehaviour
         inventory = MatrixInv.instance; // Pointer to the global inventory instance
     }
 
+    // Called once per frame.
+    // When a key is pressed, perform the corresponding action.
     void Update()
     {
-        RaycastHit hit;
-        if (Input.GetMouseButtonDown(0))
+        //RaycastHit hit;
+        if (Input.GetMouseButtonDown(0)) // This is what needs to be called with a trigger
         {
-            if (RaycastTransformable(out hit)) {
-                hit.collider.gameObject.GetComponent<BlenderMesh>().TransformShapeRestricted(inventory.equippedMatrix.matrix,
-                                                                                             false,
-                                                                                             inventory.equippedMatrix.name);
-            }
+            ShootMatrix();
             //Debug.Log(hit.point);
             //Debug.Log(hit.collider.tag);
         }
         else if (Input.GetMouseButtonDown(1))
         {
-            if (RaycastTransformable(out hit))
-            {
-                hit.collider.gameObject.GetComponent<BlenderMesh>().TransformShapeRestricted(inventory.equippedMatrix.invertMatrix,
-                                                                                             true,
-                                                                                             inventory.equippedMatrix.name);
-            }
+            ShootInverse();
             //Debug.Log(hit.point);
             //Debug.Log(hit.collider.tag);
         }
@@ -65,5 +60,27 @@ public class ShootTransform : MonoBehaviour
             return hit.collider.tag == "Transformable";
         else
             return false;
+    }
+
+    public void ShootMatrix()
+    {
+        RaycastHit hit;
+        if (RaycastTransformable(out hit))
+        {
+            hit.collider.gameObject.GetComponent<BlenderMesh>().TransformShape(inventory.equippedMatrix.matrix,
+                                                                                         false,
+                                                                                         inventory.equippedMatrix.name);
+        }
+    }
+
+    public void ShootInverse()
+    {
+        RaycastHit hit;
+        if (RaycastTransformable(out hit))
+        {
+            hit.collider.gameObject.GetComponent<BlenderMesh>().TransformShape(inventory.equippedMatrix.invertMatrix,
+                                                                                         true,
+                                                                                         inventory.equippedMatrix.name);
+        }
     }
 }

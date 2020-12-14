@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System;
 
 // Script for displaying linear transformation matrix on the screen
+// NOTE: This script is not currently in use; it was built for the old version of the project
 public class MatrixDisplay : MonoBehaviour
 {
     public Text matrix; // Assigned to text object in inspector

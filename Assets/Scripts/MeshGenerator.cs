@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter))]
 
 // Script for generating the mesh and updating it based on the transformation matrix
+// NOTE: This script is not currently in use; it was build for the old version of the project.
 public class MeshGenerator : MonoBehaviour
 {
     Mesh mesh;

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* This script generates the axis visualizations that appear when the player 
+   hovers over transformable gameobjects. */
 public class OrientationVisualization : MonoBehaviour
 {
     // ShootTransform monobehaviour for transformable raycasts

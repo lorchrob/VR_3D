@@ -9,6 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Script with helper functions. */
 public static class Utils
 {
     public static Vector4 Vec3ToPos(Vector3 vec3)

@@ -64,14 +64,18 @@
      <Compile Include="Assets\Scripts\MatrixInv.cs" />
      <Compile Include="Assets\Scripts\MeshGenerator.cs" />
      <Compile Include="Assets\Scripts\MeshMonoBehaviour.cs" />
+     <Compile Include="Assets\Scripts\MyActionScript.cs" />
      <Compile Include="Assets\Scripts\OrientationVisualization.cs" />
      <Compile Include="Assets\Scripts\PickUp.cs" />
      <Compile Include="Assets\Scripts\PickupMatrix.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\SC_FPSController.cs" />
      <Compile Include="Assets\Scripts\ShootTransform.cs" />
+     <Compile Include="Assets\Scripts\ShootingLine.cs" />
+     <Compile Include="Assets\Scripts\Teleporter.cs" />
      <Compile Include="Assets\Scripts\TransMatrix.cs" />
      <Compile Include="Assets\Scripts\Utils.cs" />
+     <Compile Include="Assets\Scripts\VRMenu.cs" />
      <Compile Include="Assets\_Barking_Dog\Common Scripts\MouseLook.cs" />
      <Compile Include="Assets\_Barking_Dog\Common Scripts\Turn_Move.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
@@ -276,6 +280,9 @@
  </Reference>
  <Reference Include="UnityEditor">
  <HintPath>/Applications/Unity/Hub/Editor/2019.4.9f1/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="Valve.Newtonsoft.Json">
+ <HintPath>/Users/lorchrob/Documents/Unity Projects/VR 3D/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>/Applications/Unity/Hub/Editor/2019.4.9f1/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -651,6 +658,26 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="SteamVR_Actions.csproj">
+      <Project>{9FB4F7ED-8BE9-C489-E8F4-3D0522C739B9}</Project>
+      <Name>SteamVR_Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR_Input_Editor.csproj">
+      <Project>{4C72D1E8-81E3-DC38-F325-C4E0F731D676}</Project>
+      <Name>SteamVR_Input_Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR_Editor.csproj">
+      <Project>{D6640F35-0263-09DE-E035-CB52AF6D695D}</Project>
+      <Name>SteamVR_Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR.csproj">
+      <Project>{66A34CFD-C591-4B09-8BB0-CA8AA52A3337}</Project>
+      <Name>SteamVR</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR_Windows_EditorHelper.csproj">
+      <Project>{168D2611-9BD5-A657-F40C-51A839389524}</Project>
+      <Name>SteamVR_Windows_EditorHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

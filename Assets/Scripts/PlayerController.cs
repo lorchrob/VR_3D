@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// This script gives all the player control "FPS" capabilities. Borrowed from the internet.
 public class PlayerController : MonoBehaviour
 {
     public float walkingSpeed = 7.5f;

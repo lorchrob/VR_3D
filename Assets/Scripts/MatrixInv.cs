@@ -30,6 +30,7 @@ public class MatrixInv : MonoBehaviour
 
     public int equippedIndex = 0; // Defines the index of the equipped Matrix
 
+    // Three text fields for what is displayed in the lower left corner
     public Text above;
     public Text below;
     public Text equipped;
@@ -40,7 +41,6 @@ public class MatrixInv : MonoBehaviour
         {
             matrices[i].calcInverse();
         }
-        UpdateText();
         EquipMatrix();
     }
 
@@ -64,7 +64,7 @@ public class MatrixInv : MonoBehaviour
         }
     }
 
-    // Update the equipped matrix;
+    // Update the equipped matrix
     void EquipMatrix()
     {
         if (matrices.Count > 0)
@@ -75,7 +75,7 @@ public class MatrixInv : MonoBehaviour
     }
 
     // Update the inventory menu
-    void UpdateText() // FIX THIS. NULL POINTER
+    void UpdateText()
     {
         above.text = "";
         below.text = "";
@@ -93,7 +93,7 @@ public class MatrixInv : MonoBehaviour
 
         if (equippedIndex - 1 >= 0)
         {
-                    above.text = matrices[equippedIndex - 1].name;          
+            above.text = matrices[equippedIndex - 1].name;          
         }
     }
 
